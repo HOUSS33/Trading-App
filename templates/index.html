@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h1 class="my-4">Your Portfolio</h1>
+
+        <!-- Table for displaying stock holdings -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Shares</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Total Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock in stocks %}
+                    {% if stock.shares > 0%}
+                    <tr>
+                        <td>{{ stock.symbol }}</td>
+                        <td>{{ stock.shares }}</td>
+                        <td>${{ '%.2f' % stock.price }}</td>
+                        <td>${{ '%.2f' % stock.total_value }}</td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Display cash balance and grand total -->
+        <div class="row my-4">
+            <div class="col-md-6">
+                <h4>Cash Balance</h4>
+                <p>${{ '%.2f' % cash }}</p>
+            </div>
+            <div class="col-md-6">
+                <h4>Grand Total</h4>
+                <p>${{ '%.2f' % grand_total }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

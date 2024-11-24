@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Get Stock Quote</h1>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <!-- Search form for stock's symbol -->
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center mb-4">Search for a Stock</h5>
+                        <form action="/quote" method="post">
+                            <div class="form-row align-items-center">
+                                <div class="col-auto">
+                                    <input
+                                        type="text"
+                                        name="symbol"
+                                        class="form-control mb-2"
+                                        placeholder="Enter stock symbol"
+                                        autocomplete="off"
+                                        autofocus
+                                    >
+                                </div>
+                                <div class="col-auto">
+                                    <button type="submit" class="btn btn-primary mb-2">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

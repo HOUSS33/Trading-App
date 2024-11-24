@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Apology
+{% endblock %}
+
+{% block main %}
+    <!-- https://memegen.link/ -->
+    <!-- https://knowyourmeme.com/memes/grumpy-cat -->
+    <img alt="{{ top }}" class="border img-fluid" src="https://api.memegen.link/images/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?background=https://i.imgur.com/CsCgN7Ll.png&width=400" title="{{ top }}">
+{% endblock %}
+
+<!--The alt="{{ top }}" part sets the "alternative text" for the image,
+which is what people see if the image can't load or if they're using a screen reader.
+The {{ top }} inside the quotes means that whatever text is stored in the top variable will be used as the alt text for the image.
+So, if top is "Hello", the alt text for the image will be "Hello".-->
+
+<!--In summary, class="border img-fluid" makes the image have a border
+and automatically resize to fit different screen sizes without distorting the image.
+Mobile Device: If the screen is narrow, like on a smartphone, the image will scale down to fit the smaller space,still looking sharp and properly proportioned.
+Desktop: On a larger screen, the image will expand to fill more space but won’t stretch beyond its natural size, keeping the image clear and undistorted.-->
+
+
+
+<!--What Each Part Does:
+
+
+-https://api.memegen.link/images/custom/:
+
+This is the base URL for creating a custom meme image.
+
+
+-{{ top | urlencode }} and {{ bottom | urlencode }}:
+
+These are the words that go on the top and bottom of the meme.
+The {{ top }} and {{ bottom }} are placeholders for whatever text you want to appear on the meme.
+| urlencode makes sure any special characters (like spaces) in the text are safely included in the URL.
+
+
+
+-?background=https://i.imgur.com/CsCgN7Ll.png:
+
+This part tells the API to use a specific image as the background for the meme.
+The image is hosted on Imgur, a popular image-sharing site.
+
+-&width=400:
+
+This tells the API to make the final image 400 pixels wide.
+
+
+Simple Summary:
+
+This code asks the memegen.link API to create a meme with the text you want.
+It uses a specific background image and makes sure the image is 400 pixels wide.
+The top text goes at the top, and the bottom text goes at the bottom of the meme.
+Does that help clarify things? -->

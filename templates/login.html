@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+
+     {% if success %}
+     <p class="mb-3 p1">Successful <br> Registration!</p>
+     {% endif %}
+
+    <form action="/login" method="post">
+        <!--The "mb-3" class in Bootstrap adds a margin to the bottom of an element-->
+        <div class="mb-3">
+            <!--class="form-control mx-auto w-auto":
+
+             form-control: A Bootstrap class that styles the input to make it look nice and consistent with other form elements. It gives the input a standard look and feel.
+             mx-auto: This centers the input field horizontally on the page.
+             w-auto: This adjusts the width of the input field to fit its content or container, rather than stretching it to be full-width.-->
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="password" placeholder="Password" type="password">
+        </div>
+        <!--class="btn btn-primary":
+
+          btn: A Bootstrap class that styles the button, giving it a basic button look with padding, border, and other default styling.
+          btn-primary: A Bootstrap class that adds a primary color (usually a shade of blue) to the button, making it stand out as the main action button on the page.
+          This color can be customized in your Bootstrap settings.-->
+        <button class="btn btn-primary" type="submit">Log In</button>
+    </form>
+{% endblock %}

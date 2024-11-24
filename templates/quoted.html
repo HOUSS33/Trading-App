@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-0 shadow-lg" style="border-radius: 20px; overflow: hidden;">
+                <div class="card-header bg-dark text-white text-center position-relative" style="background-image: linear-gradient(to right, #0f2027, #203a43, #2c5364);">
+                    <h3 class="mb-0" style="font-weight: 600; letter-spacing: 0.5px;">Stock Quote</h3>
+                </div>
+                <div class="card-body text-center p-5">
+                    <h4 class="card-title" style="font-size: 2rem; font-weight: bold;">{{ stock["name"] }}</h4>
+                    <p class="text-muted mb-4">{{ stock["symbol"] }}</p>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <span class="badge badge-pill badge-light" style="font-size: 1.25rem; padding: 0.5rem 1rem;">{{ stock["price"] }}</span>
+                    </div>
+                </div>
+                <div class="card-footer bg-light text-center p-4">
+                    <a href="/" class="btn btn-link text-dark" style="font-size: 1.1rem; font-weight: 500;">
+                        <i class="bi bi-arrow-left-circle-fill" style="margin-right: 0.5rem;"></i> Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .badge-light {
+        background-color: #ffffff;
+        color: #333333;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .badge-light:hover {
+        background-color: #2c5364;
+        color: #ffffff;
+    }
+
+    .btn-link {
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .btn-link:hover {
+        color: #2c5364;
+    }
+</style>
+{% endblock %}
